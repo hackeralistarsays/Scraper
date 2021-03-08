@@ -1,0 +1,19 @@
+{% extends "account/base_card.html" %}
+
+{% load i18n %}
+
+{% block card-header %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block card-body %}
+    <h1>{% trans "Verify Your E-mail Address" %}</h1>
+
+    <p>{% blocktrans %}We have sent an e-mail to you for verification. Follow the link provided to finalize the signup process. Please contact us if you do not receive it within a few minutes.{% endblocktrans %}</p>
+
+{% endblock %}
+
+{% block card-footer %}
+    <p>{% trans "Back to Login" %} <a href="{% url 'account_login'%}">{% trans "Sign In" %}</a></p>
+    <small>
+        <a class="text-muted" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    </small>
+{% endblock %}

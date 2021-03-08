@@ -1,0 +1,80 @@
+{% extends 'account/base_card.html' %}
+
+{% load i18n static %}
+
+{% block card-title %}
+
+<img src="{{ request.user.photo }}" alt="">
+
+{% trans "Profile" %}
+<small><a href="{% url 'account_logout' %}">Logout</a></small>
+
+
+{% endblock %}
+
+{% block card-header %}
+    <h2 style="color: gray;">{% trans "PROFILE ACCOUNT" %}</h2>
+{% endblock %}
+
+{% block card-body %}
+
+    <div class="container">
+       <div class="row">
+            <div class="col border">
+                <small>{% trans "First name" %}:</small><br>
+                {{ request.user.first_name|default:'' }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Last name" %}:</small><br>
+                {{ request.user.last_name|default:'' }}
+            </div>
+        </div>
+       <div class="row">
+            <div class="col border">
+                <small>{% trans "Display name" %}:</small><br>
+                {{ request.user.display_name|default:'' }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Date Of Birth" %}:</small><br>
+                {{ request.user.date_of_birth|default:'' }}
+            </div>
+        </div>
+       <div class="row">
+            <div class="col border">
+                <small>{% trans "Address 1" %}:</small><br>
+                {{ request.user.address1|default:'' }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Address 2" %}:</small><br>
+                {{ request.user.address2|default:'' }}
+            </div>
+        </div>
+       <div class="row">
+            <div class="col border">
+                <small>{% trans "City" %}:</small><br>
+                {{ request.user.city|default:'' }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Zip Code" %}:</small><br>
+                {{ request.user.zip_code|default:'' }}
+            </div>
+        </div>
+       <div class="row">
+            <div class="col border">
+                <small>{% trans "Country" %}:</small><br>
+                {{ request.user.country|default:'' }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Mobile Phone" %}:</small><br>
+                {{ request.user.mobile_phone|default:'' }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block card-footer %}
+    <p>{% trans "Need Another account?" %} <a href="{% url 'account_email' %}">{% trans "Add Another Email" %}</a></p>
+    <small>
+        <a class="text-muted" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+    </small>
+{% endblock %}
